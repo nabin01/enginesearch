@@ -1,0 +1,41 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>
+            Hello user. This will be the user's welcome page after he logs in.
+        </h1>
+
+        <p>We will use a field in the User model to distinguish between supplier and buyer and redirect them to different homepage.</p>
+
+        <p>Ajay has the homepage for buyer.</p>
+
+        <p>The supplier will see something including a menu for this.</p>
+
+        <div class="container">
+                <h1>Products Form</h1>
+                <div class="form-group">
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li>
+                            <div class="alert alert-success alert-dismissable">{{ message }}</div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+    
+                <form method="POST" action="" >
+                    {% csrf_token %}
+                    <div class="col-md-5">
+                        {{ form.as_p}}
+                        <button class="btn btn-primary"  type="submit">Submit</button>
+                    </div>
+                </form>
+
+        <hr>
+        <a href="/logout/">Logout</a>
+    </body>
+</html>
